@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, FC, Key, useEffect, useRef, useState } from 'react';
 import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
@@ -50,7 +50,7 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
 
 
     useEffect(() => {
-      const subscription = watch(( value, { name, type } ) => {
+      const subscription = watch(( value: { title: string; }, { name, type }: any ) => {
           if ( name === 'title' ) {
               const newSlug = value.title?.trim()
                     .replaceAll(' ', '_')
@@ -69,7 +69,7 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
     const onChangeSize = ( size: string ) => {
         const currentSizes = getValues('sizes');
         if ( currentSizes.includes( size ) ) {
-            return setValue('sizes', currentSizes.filter( s => s !== size ), { shouldValidate: true } );
+            return setValue('sizes', currentSizes.filter( (s: string) => s !== size ), { shouldValidate: true } );
         }
 
         setValue('sizes', [ ...currentSizes, size ], { shouldValidate: true });
@@ -90,7 +90,7 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
     }
 
     const onDeleteTag = ( tag: string ) => {
-        const updatedTags = getValues('tags').filter( t => t !== tag );
+        const updatedTags = getValues('tags').filter( (t: string) => t !== tag );
         setValue('tags', updatedTags, { shouldValidate: true });
     }
 
@@ -118,7 +118,7 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
     const onDeleteImage = ( image: string) =>{
         setValue(
             'images', 
-            getValues('images').filter( img => img !== image ),
+            getValues('images').filter( (img: string) => img !== image ),
             { shouldValidate: true }
         );
     }
@@ -296,7 +296,7 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
                             sx={{ mb: 1 }}
                             { ...register('slug', {
                                 required: 'Este campo es requerido',
-                                validate: (val) => val.trim().includes(' ') ? 'No puede tener espacios en blanco':undefined
+                                validate: (val: string) => val.trim().includes(' ') ? 'No puede tener espacios en blanco':undefined
                             })}
                             error={ !!errors.slug }
                             helperText={ errors.slug?.message }
@@ -322,7 +322,7 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
                         }}
                         component="ul">
                             {
-                                getValues('tags').map((tag) => {
+                                getValues('tags').map((tag: {} | null | undefined) => {
 
                                 return (
                                     <Chip
@@ -369,7 +369,7 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
 
                             <Grid container spacing={2}>
                                 {
-                                    getValues('images').map( img => (
+                                    getValues('images').map( (img: Key | null | undefined) => (
                                         <Grid item xs={4} sm={3} key={img}>
                                             <Card>
                                                 <CardMedia 
@@ -417,7 +417,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
         // crear un producto
         const tempProduct = JSON.parse( JSON.stringify( new Product() ) );
         delete tempProduct._id;
-        tempProduct.images = ['img1.jpg','img2.jpg'];
+        //tempProduct.images = ['img1.jpg','img2.jpg'];
         product = tempProduct;
 
     } else {

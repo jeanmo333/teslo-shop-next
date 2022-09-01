@@ -35,7 +35,7 @@ async function getProductBySlug(req: NextApiRequest, res: NextApiResponse<Data>)
         })
     }
 
-    product.images = product.images.map( image => {
+    product.images = product.images.map( (image: string | string[]) => {
         return image.includes('http') ? image : `${ process.env.HOST_NAME}products/${ image }`
     });
 
