@@ -43,8 +43,8 @@ const getProducts = async(req: NextApiRequest, res: NextApiResponse<Data>) => {
     await db.disconnect();
 
     // TODO:
-    const updatedProducts = products.map( (product: { images: any[]; }) => {
-        product.images = product.images.map( (image: string | string[]) => {
+    const updatedProducts = products.map( product => {
+        product.images = product.images.map( image => {
             return image.includes('http') ? image : `${ process.env.HOST_NAME}products/${ image }`
         });
 
@@ -83,7 +83,7 @@ const updateProduct = async(req: NextApiRequest, res: NextApiResponse<Data>) => 
 
         // TODO: eliminar fotos en Cloudinary
         // https://res.cloudinary.com/cursos-udemy/image/upload/v1645914028/nct31gbly4kde6cncc6i.jpg
-        product.images.forEach( async(image: string) => {
+        product.images.forEach( async(image) => {
             if ( !images.includes(image) ){
                 // Borrar de cloudinary
                 const [ fileId, extension ] = image.substring( image.lastIndexOf('/') + 1 ).split('.')
@@ -138,4 +138,3 @@ const createProduct = async(req: NextApiRequest, res: NextApiResponse<Data>) => 
      }
 
 }
-
