@@ -37,11 +37,11 @@ export const Navbar = () => {
   };
 
   return (
-    <AppBar sx={{ boxShadow: 1 }}>
+    <AppBar sx={{ boxShadow: 1, backgroundColor: '#ddd' }}>
       <Toolbar>
         {/********************************************** */}
-        <Box sx={{ display: { xs: "block", sm: "none" } }}>
-          <IconButton sx={{ marginRight: 5 }}>
+        <Box sx={{ display: { xs: "block", sm: "block" } }}>
+          <IconButton sx={{ marginRight: 2 }}>
             <DehazeIcon onClick={toggleSideMenu} />
           </IconButton>
         </Box>
@@ -64,14 +64,14 @@ export const Navbar = () => {
           className="fadeIn">
           <NextLink href="/category/men" passHref>
             <Link>
-              <Button color={asPath === "/category/men" ? "primary" : "info"}>
+              <Button sx={{marginRight: 1}} color={asPath === "/category/men" ? "primary" : "info"}>
                 Hombres
               </Button>
             </Link>
           </NextLink>
           <NextLink href="/category/women" passHref>
             <Link>
-              <Button color={asPath === "/category/women" ? "primary" : "info"}>
+              <Button sx={{marginRight: 1}}  color={asPath === "/category/women" ? "primary" : "info"}>
                 Mujeres
               </Button>
             </Link>
