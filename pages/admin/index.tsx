@@ -55,9 +55,10 @@ const DashboardPage = () => {
         icon={ <DashboardOutlined /> }
     >
         
-        <Grid container spacing={2}>
+        <Grid container spacing={2}  >
             
             <SummaryTile 
+    
                 title={ numberOfOrders }
                 subTitle="Ordenes totales"
                 icon={ <CreditCardOutlined color="secondary" sx={{ fontSize: 40 }} /> }
