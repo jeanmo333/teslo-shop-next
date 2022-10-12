@@ -84,7 +84,7 @@ const ProductPage:NextPage<Props> = ({ product }) => {
               <ItemCounter 
                 currentValue={ tempCartProduct.quantity }
                 updatedQuantity={ onUpdateQuantity  }
-                maxValue={ product.inStock > 10 ? 10: product.inStock }
+                maxValue={ product.inStock }
               />
               <SizeSelector 
                 // selectedSize={ product.sizes[2] } 
