@@ -89,7 +89,7 @@ export const CartList: FC<Props> = ({ editable = false, products }) => {
             {editable && (
               <Button
                 variant="text"
-                color="secondary"
+                color="error"
                 onClick={() => removeCartProduct(product as ICartProduct)}>
                 Remover
               </Button>
