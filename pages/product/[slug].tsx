@@ -32,6 +32,7 @@ const ProductPage:NextPage<Props> = ({ product }) => {
     size: undefined,
     slug: product.slug,
     title: product.title,
+    inStock: product.inStock,
     gender: product.gender,
     quantity: 1,
   })
