@@ -1,12 +1,14 @@
 {
   "name": "teslo-shop",
   "private": true,
+  "engines": {
+    "node": "16.14.2"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "preinstall": "npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions"
+    "lint": "next lint"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
