@@ -23,6 +23,7 @@ const AUTH_INITIAL_STATE: AuthState = {
 export const AuthProvider: FC = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, AUTH_INITIAL_STATE);
   const { data, status } = useSession();
+ 
   const router = useRouter();
 
   useEffect(() => {
@@ -53,15 +54,27 @@ export const AuthProvider: FC = ({ children }) => {
   const loginUser = async (
     email: string,
     password: string
-  ): Promise<boolean> => {
+  ):Promise<{ hasError: boolean; message?: string }> => {
     try {
       const { data } = await tesloApi.post("/user/login", { email, password });
       const { token, user } = data;
       Cookies.set("token", token);
       dispatch({ type: "[Auth] - Login", payload: user });
-      return true;
+      return {
+        hasError: false,
+      };
     } catch (error) {
-      return false;
+      if (axios.isAxiosError(error)) {
+        return {
+          hasError: true,
+          message: error.response?.data.message,
+        };
+      }
+
+      return {
+        hasError: true,
+        message: "No se pudo crear el usuario - intente de nuevo",
+      };
     }
   };
 

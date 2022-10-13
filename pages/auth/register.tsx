@@ -59,7 +59,7 @@ const RegisterPage = () => {
                         <Grid item xs={12}>
                             <Typography variant='h1' component="h1">Crear cuenta</Typography>
                             <Chip 
-                                label="No reconocemos ese usuario / contraseña"
+                                label={errorMessage}
                                 color="error"
                                 icon={ <ErrorOutline /> }
                                 className="fadeIn"
