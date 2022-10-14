@@ -32,7 +32,6 @@ const ProductPage:NextPage<Props> = ({ product }) => {
     size: undefined,
     slug: product.slug,
     title: product.title,
-    inStock: product.inStock,
     gender: product.gender,
     quantity: 1,
   })
@@ -85,7 +84,7 @@ const ProductPage:NextPage<Props> = ({ product }) => {
               <ItemCounter 
                 currentValue={ tempCartProduct.quantity }
                 updatedQuantity={ onUpdateQuantity  }
-                maxValue={ product.inStock }
+                maxValue={ product.inStock > 10 ? 10: product.inStock }
               />
               <SizeSelector 
                 // selectedSize={ product.sizes[2] } 

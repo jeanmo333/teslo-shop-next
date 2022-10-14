@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react'
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
+import 'react-slideshow-image/dist/styles.css'
 
 
 import { CssBaseline, ThemeProvider } from '@mui/material';

@@ -78,7 +78,7 @@ const AddressPage = () => {
                 <Grid item xs={12} sm={ 6 }>
                     <TextField
                         label='Nombre'
-                        variant="outlined"
+                        variant="filled"
                         fullWidth 
                         { ...register('firstName', {
                             required: 'Este campo es requerido'
@@ -90,7 +90,7 @@ const AddressPage = () => {
                 <Grid item xs={12} sm={ 6 }>
                     <TextField
                         label='Apellido'
-                        variant="outlined"
+                        variant="filled"
                         fullWidth
                         { ...register('lastName', {
                             required: 'Este campo es requerido'
@@ -103,7 +103,7 @@ const AddressPage = () => {
                 <Grid item xs={12} sm={ 6 }>
                     <TextField
                         label='Dirección'
-                        variant="outlined"
+                        variant="filled"
                         fullWidth
                         { ...register('address', {
                             required: 'Este campo es requerido'
@@ -115,7 +115,7 @@ const AddressPage = () => {
                 <Grid item xs={12} sm={ 6 }>
                     <TextField 
                         label='Dirección 2 (opcional)' 
-                        variant="outlined" 
+                        variant="filled" 
                         fullWidth 
                         { ...register('address2')}
                     />
@@ -124,7 +124,7 @@ const AddressPage = () => {
                 <Grid item xs={12} sm={ 6 }>
                     <TextField 
                         label='Código Postal'
-                        variant="outlined"
+                        variant="filled"
                         fullWidth
                         { ...register('zip', {
                             required: 'Este campo es requerido'
@@ -136,7 +136,7 @@ const AddressPage = () => {
                 <Grid item xs={12} sm={ 6 }>
                     <TextField
                         label='Ciudad'
-                        variant="outlined"
+                        variant="filled"
                         fullWidth
                         { ...register('city', {
                             required: 'Este campo es requerido'
@@ -150,7 +150,7 @@ const AddressPage = () => {
                     {/* <FormControl fullWidth> */}
                         <TextField
                             // select
-                            variant="outlined"
+                            variant="filled"
                             label="País"
                             fullWidth
                             // defaultValue={ Cookies.get('country') || countries[0].code }
@@ -174,7 +174,7 @@ const AddressPage = () => {
                 <Grid item xs={12} sm={ 6 }>
                     <TextField
                         label='Teléfono'
-                        variant="outlined"
+                        variant="filled"
                         fullWidth
                         { ...register('phone', {
                             required: 'Este campo es requerido'

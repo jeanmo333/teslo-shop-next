@@ -59,7 +59,7 @@ const RegisterPage = () => {
                         <Grid item xs={12}>
                             <Typography variant='h1' component="h1">Crear cuenta</Typography>
                             <Chip 
-                                label={errorMessage}
+                                label="No reconocemos ese usuario / contraseña"
                                 color="error"
                                 icon={ <ErrorOutline /> }
                                 className="fadeIn"
@@ -70,7 +70,7 @@ const RegisterPage = () => {
                         <Grid item xs={12}>
                             <TextField
                                 label="Nombre completo"
-                                variant="outlined"
+                                variant="filled"
                                 fullWidth 
                                 { ...register('name', {
                                     required: 'Este campo es requerido',
@@ -84,7 +84,7 @@ const RegisterPage = () => {
                             <TextField
                                 type="email"
                                 label="Correo"
-                                variant="outlined"
+                                variant="filled"
                                 fullWidth 
                                 { ...register('email', {
                                     required: 'Este campo es requerido',
@@ -99,7 +99,7 @@ const RegisterPage = () => {
                             <TextField
                                 label="Contraseña"
                                 type='password'
-                                variant="outlined"
+                                variant="filled"
                                 fullWidth 
                                 { ...register('password', {
                                     required: 'Este campo es requerido',

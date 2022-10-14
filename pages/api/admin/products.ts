@@ -138,3 +138,4 @@ const createProduct = async(req: NextApiRequest, res: NextApiResponse<Data>) => 
      }
 
 }
+
