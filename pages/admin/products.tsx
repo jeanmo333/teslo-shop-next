@@ -46,6 +46,22 @@ const columns:GridColDef[] = [
     { field: 'price', headerName: 'Precio' },
     { field: 'sizes', headerName: 'Tallas', width: 250 },
 
+    {
+        field: 'editar',
+        headerName: 'Editar',
+        width: 200,
+        sortable: false,
+        renderCell: ({row}: GridValueGetterParams) => {
+            return (
+                <NextLink href={`/admin/products/${ row.slug }`} passHref>
+                    <Link underline='always'>
+                        Editar
+                    </Link>
+               </NextLink>
+            )
+        }
+    }
+
 ];
 
 
