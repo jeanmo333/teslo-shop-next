@@ -144,6 +144,8 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
                 setIsSaving(false)
             }
 
+            router.replace('/admin/products');
+
 
         } catch (error) {
             console.log(error);
