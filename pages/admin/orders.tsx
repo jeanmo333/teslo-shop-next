@@ -5,6 +5,7 @@ import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import useSWR from 'swr';
 
 import { AdminLayout } from '../../components/layouts'
+import { FullScreenLoading } from '../../components/ui/FullScreenLoading';
 import { IOrder, IUser } from '../../interfaces';
 
 
@@ -45,7 +46,7 @@ const OrdersPage = () => {
 
     const { data, error } = useSWR<IOrder[]>('/api/admin/orders');
 
-    if ( !data && !error ) return (<></>);
+    if ( !data && !error ) return (<><FullScreenLoading /></>);
     
     const rows = data!.map( order => ({
         id    : order._id,

@@ -24,8 +24,11 @@ export const Navbar = () => {
     
 
     return (
-        <AppBar>
+    
+        <AppBar >
+            
             <Toolbar>
+          
                 <NextLink href='/' passHref>
                     <Link display='flex' alignItems='center'>
                         <Typography variant='h6'>Teslo |</Typography>
@@ -118,8 +121,11 @@ export const Navbar = () => {
                 <Button onClick={ toggleSideMenu }>
                     Menú
                 </Button>
+            
 
             </Toolbar>
+            
         </AppBar>
+
     )
 }
