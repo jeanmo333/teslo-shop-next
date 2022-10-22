@@ -70,7 +70,7 @@ const RegisterPage = () => {
                         <Grid item xs={12}>
                             <TextField
                                 label="Nombre completo"
-                                variant="filled"
+                                variant="outlined"
                                 fullWidth 
                                 { ...register('name', {
                                     required: 'Este campo es requerido',
@@ -84,7 +84,7 @@ const RegisterPage = () => {
                             <TextField
                                 type="email"
                                 label="Correo"
-                                variant="filled"
+                                variant="outlined"
                                 fullWidth 
                                 { ...register('email', {
                                     required: 'Este campo es requerido',
@@ -99,7 +99,7 @@ const RegisterPage = () => {
                             <TextField
                                 label="Contraseña"
                                 type='password'
-                                variant="filled"
+                                variant="outlined"
                                 fullWidth 
                                 { ...register('password', {
                                     required: 'Este campo es requerido',

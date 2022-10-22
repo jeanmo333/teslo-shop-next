@@ -75,7 +75,7 @@ const LoginPage = () => {
                             <TextField
                                 type="email"
                                 label="Correo"
-                                variant="filled"
+                                variant="outlined"
                                 fullWidth 
                                 { ...register('email', {
                                     required: 'Este campo es requerido',
@@ -91,7 +91,7 @@ const LoginPage = () => {
                             <TextField
                                 label="Contraseña"
                                 type='password'
-                                variant="filled"
+                                variant="outlined"
                                 fullWidth 
                                 { ...register('password', {
                                     required: 'Este campo es requerido',
