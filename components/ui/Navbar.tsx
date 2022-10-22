@@ -64,21 +64,21 @@ export const Navbar = () => {
           className="fadeIn">
           <NextLink href="/category/men" passHref>
             <Link>
-              <Button sx={{marginRight: 1}} color={asPath === "/category/men" ? "primary" : "info"}>
+              <Button sx={{marginRight: 1}} color={asPath === "/category/men" ? "success" : "info"}>
                 Hombres
               </Button>
             </Link>
           </NextLink>
           <NextLink href="/category/women" passHref>
             <Link>
-              <Button sx={{marginRight: 1}}  color={asPath === "/category/women" ? "primary" : "info"}>
+              <Button sx={{marginRight: 1}}  color={asPath === "/category/women" ? "success" : "info"}>
                 Mujeres
               </Button>
             </Link>
           </NextLink>
           <NextLink href="/category/kid" passHref>
             <Link>
-              <Button color={asPath === "/category/kid" ? "primary" : "info"}>
+              <Button color={asPath === "/category/kid" ? "success" : "info"}>
                 Niños
               </Button>
             </Link>
@@ -147,3 +147,4 @@ export const Navbar = () => {
     </AppBar>
   );
 };
+
