@@ -30,7 +30,7 @@ export const SideMenu = () => {
   return (
     <Drawer
         open={ isMenuOpen }
-        anchor='right'
+        anchor='left'
         sx={{ backdropFilter: 'blur(4px)', transition: 'all 0.5s ease-out' }}
         onClose={ toggleSideMenu }
     >
