@@ -79,13 +79,13 @@ const DashboardPage = () => {
 
             <SummaryTile 
                 title={ numberOfClients }
-                subTitle="Clientes"
+                subTitle="Clientes totales"
                 icon={ <GroupOutlined color="primary" sx={{ fontSize: 40 }} /> }
             />
 
             <SummaryTile 
                 title={ numberOfProducts }
-                subTitle="Productos"
+                subTitle="Productos totales"
                 icon={ <CategoryOutlined color="warning" sx={{ fontSize: 40 }} /> }
             />
 
