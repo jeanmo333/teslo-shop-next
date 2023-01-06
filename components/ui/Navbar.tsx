@@ -37,7 +37,7 @@ export const Navbar = () => {
   };
 
   return (
-    <AppBar >
+    <AppBar>
       <Toolbar>
         {/********************************************** */}
         <Box sx={{ display: { xs: "block", sm: "block" } }}>
@@ -49,8 +49,11 @@ export const Navbar = () => {
         <Box sx={{ display: { xs: "none", sm: "block" } }}>
           <NextLink href="/" passHref>
             <Link display="flex" alignItems="center">
-              <Typography variant="h6" sx={{ fontWeight: "bold", fontSize: 25,color: "white" }}>Shopi</Typography>
-            
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: "bold", fontSize: 25, color: "white" }}>
+                Amatec-shop
+              </Typography>
             </Link>
           </NextLink>
         </Box>
@@ -64,14 +67,18 @@ export const Navbar = () => {
           className="fadeIn">
           <NextLink href="/category/men" passHref>
             <Link>
-              <Button sx={{marginRight: 1}} color={asPath === "/category/men" ? "success" : "info"}>
+              <Button
+                sx={{ marginRight: 1 }}
+                color={asPath === "/category/men" ? "success" : "info"}>
                 Hombres
               </Button>
             </Link>
           </NextLink>
           <NextLink href="/category/women" passHref>
             <Link>
-              <Button sx={{marginRight: 1}}  color={asPath === "/category/women" ? "success" : "info"}>
+              <Button
+                sx={{ marginRight: 1 }}
+                color={asPath === "/category/women" ? "success" : "info"}>
                 Mujeres
               </Button>
             </Link>
@@ -89,7 +96,11 @@ export const Navbar = () => {
         <Box sx={{ display: { xs: "block", sm: "none" } }}>
           <NextLink href="/" passHref>
             <Link display="flex" alignItems="center">
-              <Typography variant="h6" sx={{ fontWeight: "bold", fontSize: 25, color: "white"   }}>Shopi</Typography>
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: "bold", fontSize: 25, color: "white" }}>
+                Amatec-shop
+              </Typography>
             </Link>
           </NextLink>
         </Box>
@@ -100,7 +111,7 @@ export const Navbar = () => {
         {/* Pantallas pantallas grandes */}
         {isSearchVisible ? (
           <Input
-            sx={{ display: { xs: "none", sm: "flex" }, color: "white"}}
+            sx={{ display: { xs: "none", sm: "flex" }, color: "white" }}
             className="fadeIn"
             autoFocus
             value={searchTerm}
@@ -110,7 +121,9 @@ export const Navbar = () => {
             placeholder="Buscar..."
             endAdornment={
               <InputAdornment position="end">
-                <IconButton  sx={{ color: "white" }} onClick={() => setIsSearchVisible(false)}>
+                <IconButton
+                  sx={{ color: "white" }}
+                  onClick={() => setIsSearchVisible(false)}>
                   <ClearOutlined />
                 </IconButton>
               </InputAdornment>
@@ -120,14 +133,14 @@ export const Navbar = () => {
           <IconButton
             onClick={() => setIsSearchVisible(true)}
             className="fadeIn"
-            sx={{ display: { xs: "none", sm: "flex" },  color: "white" }}>
+            sx={{ display: { xs: "none", sm: "flex" }, color: "white" }}>
             <SearchOutlined />
           </IconButton>
         )}
 
         {/* Pantallas pequeñas */}
         <IconButton
-          sx={{ display: { xs: "flex", sm: "none" },  color: "white" }}
+          sx={{ display: { xs: "flex", sm: "none" }, color: "white" }}
           onClick={toggleSideMenu}>
           <SearchOutlined />
         </IconButton>
@@ -138,7 +151,7 @@ export const Navbar = () => {
               <Badge
                 badgeContent={numberOfItems > 9 ? "+9" : numberOfItems}
                 color="secondary">
-                <ShoppingCartOutlined  sx={{ color: "white" }} />
+                <ShoppingCartOutlined sx={{ color: "white" }} />
               </Badge>
             </IconButton>
           </Link>
@@ -147,4 +160,3 @@ export const Navbar = () => {
     </AppBar>
   );
 };
-

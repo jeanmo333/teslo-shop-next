@@ -1,17 +1,35 @@
-import '../styles/globals.css';
+import { useEffect, useState } from 'react';
 import type { AppProps } from 'next/app';
-import { SessionProvider } from 'next-auth/react'
-import { PayPalScriptProvider } from '@paypal/react-paypal-js';
-import 'react-slideshow-image/dist/styles.css'
-
-
-import { CssBaseline, ThemeProvider } from '@mui/material';
 import { SWRConfig } from 'swr';
 
+import '../styles/globals.css';
+import 'react-slideshow-image/dist/styles.css'
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import { lightTheme } from '../themes';
+
+import { SessionProvider } from 'next-auth/react'
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
+
+
+
 import { AuthProvider, CartProvider, UiProvider } from '../context';
 
+
 function MyApp({ Component, pageProps }: AppProps) {
+
+  const [showing, setShowing] = useState(false);
+
+  useEffect(() => {
+    setShowing(true);
+  }, []);
+
+  if (!showing) {
+    return null;
+  }
+
+  if (typeof window === 'undefined') {
+    return <></>;
+  } else {
   return (
     <SessionProvider>
       <PayPalScriptProvider options={{ 'client-id': process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || '' }}>
@@ -36,7 +54,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       </PayPalScriptProvider>
     </SessionProvider>
-  )
+  );
+        }
 }
 
 export default MyApp
