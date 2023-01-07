@@ -6,8 +6,6 @@ import '../styles/globals.css';
 import 'react-slideshow-image/dist/styles.css'
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { lightTheme } from '../themes';
-
-import { SessionProvider } from 'next-auth/react'
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 
@@ -31,7 +29,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     return <></>;
   } else {
   return (
-    <SessionProvider>
       <PayPalScriptProvider options={{ 'client-id': process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || '' }}>
 
       
@@ -53,7 +50,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         </SWRConfig>
 
       </PayPalScriptProvider>
-    </SessionProvider>
   );
         }
 }

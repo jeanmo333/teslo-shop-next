@@ -41,8 +41,10 @@ export const Navbar = () => {
       <Toolbar>
         {/********************************************** */}
         <Box sx={{ display: { xs: "block", sm: "block" } }}>
-          <IconButton sx={{ marginRight: 2, color: "white" }}>
-            <DehazeIcon onClick={toggleSideMenu} />
+          <IconButton 
+          onClick={toggleSideMenu}
+          sx={{ marginRight: 2, color: "white" }}>
+            <DehazeIcon  />
           </IconButton>
         </Box>
         {/********************************************** */}

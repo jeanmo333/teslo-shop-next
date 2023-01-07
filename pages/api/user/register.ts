@@ -13,6 +13,7 @@ type Data =
         email: string;
         name: string;
         role: string;
+        _id: string;
     }
 }
 
@@ -57,7 +58,7 @@ const registerUser = async(req: NextApiRequest, res: NextApiResponse<Data>) => {
 
     if ( user ) {
         return res.status(400).json({
-            message:'No puede usar ese correo'
+            message:'Usuario ya existe'
         })
     }
 
@@ -80,11 +81,13 @@ const registerUser = async(req: NextApiRequest, res: NextApiResponse<Data>) => {
    
     const { _id, role } = newUser;
 
-    const token = jwt.signToken( _id, email );
+    const token = jwt.signToken( _id);
 
     return res.status(200).json({
+        message:'Cuenta creado con exito, puede logeate',
         token, //jwt
         user: {
+            _id,
             email, 
             role, 
             name,

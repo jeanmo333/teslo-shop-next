@@ -7,12 +7,17 @@ import { ProductList } from '../components/products';
 import { useProducts } from '../hooks';
 
 import { FullScreenLoading } from '../components/ui';
+import { useEffect } from 'react';
+import { useAuth } from '../hooks/useAuth';
 
 
 const HomePage: NextPage = () => {
-
-
+  const { checkToken } = useAuth();
   const { products, isLoading } = useProducts('/products');
+
+  useEffect(() => {
+    checkToken();
+  }, []);
 
 
   return (

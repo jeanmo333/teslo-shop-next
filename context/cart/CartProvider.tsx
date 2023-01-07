@@ -5,6 +5,7 @@ import axios from "axios";
 import { ICartProduct, IOrder, ShippingAddress } from "../../interfaces";
 import { CartContext, cartReducer } from "./";
 import { tesloApi } from "../../api";
+import { useAuth } from "../../hooks/useAuth";
 
 export interface CartState {
   isLoaded: boolean;
@@ -29,6 +30,8 @@ const CART_INITIAL_STATE: CartState = {
 
 export const CartProvider: FC = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, CART_INITIAL_STATE);
+
+  const { user } = useAuth();
 
   // Efecto
   useEffect(() => {
@@ -168,6 +171,7 @@ export const CartProvider: FC = ({ children }) => {
         ...p,
         size: p.size!,
       })),
+      user: user?._id,
       shippingAddress: state.shippingAddress,
       numberOfItems: state.numberOfItems,
       subTotal: state.subTotal,
