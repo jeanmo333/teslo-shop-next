@@ -25,7 +25,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
 
 const createOrder = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     
-    const { orderItems, total } = req.body as IOrder;
+    const { orderItems, total, user } = req.body as IOrder;
 
     // Vericar que tengamos un usuario
     // const session: any = await getSession({ req });
@@ -60,8 +60,8 @@ const createOrder = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 
         // Todo bien hasta este punto
        // const userId = session.user._id;
-       // const newOrder = new Order({ ...req.body, isPaid: false, user: userId });
-       const newOrder = new Order({ ...req.body, isPaid: false});
+        const newOrder = new Order({ ...req.body, isPaid: false, user });
+      // const newOrder = new Order({ ...req.body, isPaid: false});
         newOrder.total = Math.round( newOrder.total * 100 ) / 100;
 
         await newOrder.save();
