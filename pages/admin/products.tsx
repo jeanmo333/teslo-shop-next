@@ -6,7 +6,6 @@ import useSWR from 'swr';
 
 import { AdminLayout } from '../../components/layouts'
 import { IProduct  } from '../../interfaces';
-import { FullScreenLoading } from '../../components/ui/FullScreenLoading';
 
 
 const columns:GridColDef[] = [
@@ -46,22 +45,6 @@ const columns:GridColDef[] = [
     { field: 'price', headerName: 'Precio' },
     { field: 'sizes', headerName: 'Tallas', width: 250 },
 
-    {
-        field: 'editar',
-        headerName: 'Editar',
-        width: 200,
-        sortable: false,
-        renderCell: ({row}: GridValueGetterParams) => {
-            return (
-                <NextLink href={`/admin/products/${ row.slug }`} passHref>
-                    <Link underline='always'>
-                        Editar
-                    </Link>
-               </NextLink>
-            )
-        }
-    }
-
 ];
 
 
@@ -70,7 +53,7 @@ const ProductsPage = () => {
 
     const { data, error } = useSWR<IProduct[]>('/api/admin/products');
 
-    if ( !data && !error ) return (<><FullScreenLoading /></>);
+    if ( !data && !error ) return (<></>);
     
     const rows = data!.map( product => ({
         id: product._id,

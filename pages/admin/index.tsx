@@ -6,8 +6,6 @@ import { AdminLayout } from '../../components/layouts'
 import { Grid, Typography } from '@mui/material'
 import { SummaryTile } from '../../components/admin'
 import { DashboardSummaryResponse } from '../../interfaces';
-import { FullScreenLoading } from '../../components/ui/FullScreenLoading';
-
 
 const DashboardPage = () => {
 
@@ -30,7 +28,7 @@ const DashboardPage = () => {
 
 
     if ( !error && !data ) {
-        return <><FullScreenLoading /></>
+        return <></>
     }
 
     if ( error ){
@@ -79,13 +77,13 @@ const DashboardPage = () => {
 
             <SummaryTile 
                 title={ numberOfClients }
-                subTitle="Clientes totales"
+                subTitle="Clientes"
                 icon={ <GroupOutlined color="primary" sx={{ fontSize: 40 }} /> }
             />
 
             <SummaryTile 
                 title={ numberOfProducts }
-                subTitle="Productos totales"
+                subTitle="Productos"
                 icon={ <CategoryOutlined color="warning" sx={{ fontSize: 40 }} /> }
             />
 

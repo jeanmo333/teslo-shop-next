@@ -13,14 +13,10 @@ export const checkUserEmailPassword = async( email: string, password: string ) =
 
     if ( !user ) {
         return null;
-
-        //throw new Error("email or password not valid")
     }
 
     if ( !bcrypt.compareSync( password, user.password! ) ) {
         return null;
-
-      //  throw new Error("email or password not valid")
     }
 
     const { role, name, _id } = user;

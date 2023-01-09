@@ -8,7 +8,6 @@ import { Grid, Select, MenuItem } from '@mui/material';
 import { AdminLayout } from '../../components/layouts'
 import { IUser } from '../../interfaces';
 import { tesloApi } from '../../api';
-import { FullScreenLoading } from '../../components/ui';
 
 
 
@@ -26,7 +25,7 @@ const UsersPage = () => {
     }, [data])
     
 
-    if ( !data && !error ) return (<><FullScreenLoading /></>);
+    if ( !data && !error ) return (<></>);
 
     const onRoleUpdated = async( userId: string, newRole: string ) => {
 

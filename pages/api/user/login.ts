@@ -13,7 +13,6 @@ type Data =
         email: string;
         name: string;
         role: string;
-        _id: string
     }
 }
 
@@ -39,22 +38,21 @@ const loginUser = async(req: NextApiRequest, res: NextApiResponse<Data>) => {
     await db.disconnect();
 
     if ( !user ) {
-        return res.status(400).json({ message: 'Correo o contraseña no válidos' })
+        return res.status(400).json({ message: 'Correo o contraseña no válidos - EMAIL' })
     }
     
     if ( !bcrypt.compareSync( password, user.password! ) ) {
-        return res.status(400).json({ message: 'Correo o contraseña no válidos' })
+        return res.status(400).json({ message: 'Correo o contraseña no válidos - Password' })
     }
 
     const { role, name, _id } = user;
-   
 
-    const token = jwt.signToken( _id);
+    const token = jwt.signToken( _id, email );
 
     return res.status(200).json({
         token, //jwt
         user: {
-            email, role, name, _id
+            email, role, name
         }
     })
 

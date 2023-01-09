@@ -5,7 +5,6 @@ import { CartContext } from '../../context';
 import { ShopLayout } from '../../components/layouts/ShopLayout';
 import { CartList, OrderSummary } from '../../components/cart';
 import { useRouter } from 'next/router';
-import { FullScreenLoading } from '../../components/ui';
 
 const CartPage = () => {
 
@@ -19,7 +18,7 @@ const CartPage = () => {
     }, [ isLoaded, cart, router ])
     
     if ( !isLoaded || cart.length === 0 ) {
-        return (<><FullScreenLoading/></>);
+        return (<></>);
     }
 
     return (

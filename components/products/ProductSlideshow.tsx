@@ -1,8 +1,7 @@
-import React from 'react';
 import { FC } from 'react';
-import { Slide } from "react-slideshow-image";
+import { Slide } from 'react-slideshow-image';
 
-import 'react-slideshow-image/dist/styles.css'
+import 'react-slideshow-image/dist/styles.css';
 import styles from './ProductSlideshow.module.css';
 
 interface Props {

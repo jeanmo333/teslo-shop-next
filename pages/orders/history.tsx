@@ -1,5 +1,6 @@
 import NextLink from 'next/link';
 import { GetServerSideProps, NextPage } from 'next'
+import { getSession } from 'next-auth/react';
 
 import { Typography, Grid, Chip, Link } from '@mui/material';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
@@ -7,8 +8,6 @@ import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import { ShopLayout } from '../../components/layouts';
 import { dbOrders } from '../../database';
 import { IOrder } from '../../interfaces';
-import { useAuth } from '../../hooks/useAuth';
-import { jwt } from '../../utils';
 
 
 
@@ -84,25 +83,23 @@ const HistoryPage: NextPage<Props> = ({ orders }) => {
 }
 
 
-
+// You should use getServerSideProps when:
+// - Only if you need to pre-render a page whose data must be fetched at request time
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     
- 
-  const  userId = await jwt.isValidToken( req.cookies as unknown as string );
-    
-   // const session: any = await getSession({ req });
+    const session: any = await getSession({ req });
 
-    // if ( !session ) {
-    //     return {
-    //         redirect: {
-    //             destination: '/auth/login?p=/orders/history',
-    //             permanent: false,
-    //         }
-    //     }
-    // }
+    if ( !session ) {
+        return {
+            redirect: {
+                destination: '/auth/login?p=/orders/history',
+                permanent: false,
+            }
+        }
+    }
 
-  const orders = await dbOrders.getOrdersByUser( userId );
+    const orders = await dbOrders.getOrdersByUser( session.user._id );
 
 
     return {
