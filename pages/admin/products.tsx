@@ -6,6 +6,7 @@ import useSWR from 'swr';
 
 import { AdminLayout } from '../../components/layouts'
 import { IProduct  } from '../../interfaces';
+import { FullScreenLoading } from '../../components/ui';
 
 
 const columns:GridColDef[] = [
@@ -53,7 +54,7 @@ const ProductsPage = () => {
 
     const { data, error } = useSWR<IProduct[]>('/api/admin/products');
 
-    if ( !data && !error ) return (<></>);
+    if ( !data && !error ) return (<><FullScreenLoading/></>);
     
     const rows = data!.map( product => ({
         id: product._id,
